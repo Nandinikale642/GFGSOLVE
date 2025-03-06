@@ -24,7 +24,7 @@ GFGSOLVE/
 │── 📌 requirements.txt # Python Dependencies
 │── 📖 README.md # Project Documentation
 
-1.Install Dependencies
+ 1.Install Dependencies
 First, ensure you have Python installed, then run:
 pip install -r requirements.txt
 

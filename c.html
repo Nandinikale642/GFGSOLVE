@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+    <Style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .left {
+            width: 25%;
+            background-color: #1e2a47;
+            color: #fff;
+            padding: 30px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .left button {
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            background-color: #00bfae;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .left button:hover {
+            background-color: #009b87;
+            transform: scale(1.05);
+        }
+
+        .right {
+            width: 75%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #616774;
+        }
+
+        #chat-container {
+            flex-grow: 1;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #1e2a47;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        #chat-output {
+            margin-bottom: 15px;
+            color: white;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        #question {
+            width: calc(100% - 40px);
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            background-color: #f1f1f1;
+            color: black;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #ax-button {
+            background-color: #28a745;
+        }
+
+        #ax-button:hover {
+            background-color: #218838;
+        }
+    </Style>
+</head>
+
+<body>
+    <div class="left">
+        <button>Python</button>
+        <button>Coding</button>
+        <button>Chatbot</button>
+    </div>
+
+    <div class="right">
+        <div id="chat-container">
+            <div id="chat-output"></div>
+            <input type="text" id="question" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+            <button id="ax-button" onclick="requestExpertHelp()" disabled>Not Satisfies</button>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = "http://127.0.0.1:5000/chat";
+        var uniqueId;
+
+        function sendMessage() {
+            var userInput = document.getElementById("question");
+            var chatOutput = document.getElementById("chat-output");
+
+            var userMessage = userInput.value.trim();
+            if (!userMessage) {
+                alert("Please enter a question.");
+                return;
+            }
+
+            generateUniqueId();
+
+            chatOutput.innerHTML += `<p><strong>You:</strong> ${userMessage}</p>`;
+
+            fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userMessage })
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatOutput.innerHTML += `<p><strong>AI:</strong> ${data.response || "Sorry, I didn't understand that."}</p>`;
+                userInput.value = "";
+                chatOutput.scrollTop = chatOutput.scrollHeight;
+                document.getElementById("ax-button").disabled = false;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                chatOutput.innerHTML += `<p><strong>AI:</strong> Error! Could not get response.</p>`;
+            });
+        }
+
+        function requestExpertHelp() {
+            var chatOutput = document.getElementById("chat-output");
+            var lastQuestionMatch = chatOutput.innerHTML.match(/<p><strong>You:<\/strong> (.*?)<\/p>/g);
+
+            if (!lastQuestionMatch || lastQuestionMatch.length === 0) {
+                alert("Please ask a question first.");
+                return;
+            }
+
+            var lastQuestion = lastQuestionMatch[lastQuestionMatch.length - 1]
+                                .replace(/<p><strong>You:<\/strong> /, '')
+                                .replace(/<\/p>/, '');
+
+            generateUniqueId();
+
+            chatOutput.innerHTML += `<p><strong>Question ID:</strong> ${uniqueId}</p>`;
+            window.open(`expert.html?question=${encodeURIComponent(lastQuestion)}&id=${uniqueId}`, "_blank");
+        }
+
+        function generateUniqueId() {
+            if (!uniqueId) {
+                uniqueId = Math.random().toString(36).substr(2, 9);
+            }
+        }
+
+        window.addEventListener("focus", function () {
+            var expertAnswer = localStorage.getItem("expertAnswer");
+            if (expertAnswer) {
+                document.getElementById("chat-output").innerHTML += 
+                    `<p><strong>Expert:</strong> ${expertAnswer}</p>`;
+                localStorage.removeItem("expertAnswer");
+            }
+        });
+    </script>
+</body>
+
+</html>

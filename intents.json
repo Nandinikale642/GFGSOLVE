@@ -1,0 +1,561 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi there",
+                "How are you",
+                "Is anyone there?",
+                "Hey",
+                "Hola",
+                "Hello",
+                "Good day"
+            ],
+            "responses": [
+                "Hello",
+                "Good to see you again",
+                "Hi there, how can I help?"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "See you later",
+                "Goodbye",
+                "Nice chatting to you, bye",
+                "Till next time"
+            ],
+            "responses": [
+                "See you!",
+                "Have a nice day",
+                "Bye! Come back again soon."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "That's helpful",
+                "Awesome, thanks",
+                "Thanks for helping me"
+            ],
+            "responses": [
+                "My pleasure",
+                "You're Welcome"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "program",
+            "patterns": [
+                "hello",
+                "hello world",
+                "hello world python"
+            ],
+            "responses": [
+                "print(\" Hello World\")"
+            ],
+            "context": [
+                "python"
+            ]
+        },
+        {
+            "tag": "program",
+            "patterns": [
+                "hello",
+                "hello world",
+                "hello world python"
+            ],
+            "responses": [
+                "print(\" Hello World\") "
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "add",
+            "patterns": [
+                "add",
+                "add integers",
+                "program to add integers"
+            ],
+            "responses": [
+                "a = int(input(\"Enter first number: \"))\nb = int(input(\"Enter second number: \"))\nprint(\"Sum of {0} and {1} is {2}\")\nprint(a+b).format(a,b,a+b)"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "subtract",
+            "patterns": [
+                "subtract",
+                "subtract integers",
+                "program to subtract integers"
+            ],
+            "responses": [
+                "a = int(input(\"Enter first number: \"))\nb = int(input(\"Enter second number: \"))\nprint(\"Difference of {0} and {1} is {2}\")\nprint(a-b).format(a,b,a-b)"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "multiply",
+            "patterns": [
+                "multiply",
+                "multiply integers",
+                "program to multiply integers"
+            ],
+            "responses": [
+                "a = int(input(\"Enter first number: \"))\nb = int(input(\"Enter second number: \"))\nprint(\"Product of {0} and {1} is {2}\")\nprint(a*b).format(a,b,a*b)"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "divide",
+            "patterns": [
+                "divide",
+                "divide integers",
+                "program to divide integers"
+            ],
+            "responses": [
+                "a = int(input(\"Enter first number: \"))\nb = int(input(\"Enter second number: \"))\nprint(\"Division of {0} and {1} is {2}\")\nprint(a/b).format(a,b,a/b)"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "even or odd",
+            "patterns": [
+                "even or odd",
+                "even or odd number",
+                "program to check even or odd number"
+            ],
+            "responses": [
+                "a = int(input(\"Enter a number: \"))\nif a % 2 == 0:\n    print(\"{0} is Even\")\nelse:\n    print(\"{0} is Odd\")\nformat(a)"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "prime or not",
+            "patterns": [
+                "prime or not",
+                "prime or not number",
+                "program to check prime or not"
+            ],
+            "responses": [
+                "a = int(input(\"Enter a number: \"))\nif a % 2 == 0:\n    print(\"{0} is not Prime\")\nelse:\n    print(\"{0} is Prime\")\nformat(a)"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "factorial",
+            "patterns": [
+                "factorial",
+                "factorial of a number",
+                "program to find factorial of a number"
+            ],
+            "responses": [
+                "a = int(input(\"Enter a number: \"))\nfact = 1\nfor i in range(1, a + 1):\n    fact = fact * i\nprint(\"Factorial of {0} is {1}\")\nprint(fact).format(a,fact)"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "fibonacci",
+            "patterns": [
+                "fibonacci",
+                "fibonacci series",
+                "program for fibonacci series"
+            ],
+            "responses": [
+                "n = int(input(\"Enter the number of terms: \"))\na, b = 0, 1\nprint(\"Fibonacci sequence:\")\nfor _ in range(n):\n    print(a, end=\" \")\n    a, b = b, a + b"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "prime_check",
+            "patterns": [
+                "prime",
+                "check if a number is prime",
+                "program to check prime number"
+            ],
+            "responses": [
+                "num = int(input(\"Enter a number: \"))\nif num > 1:\n    for i in range(2, int(num/2) + 1):\n        if (num % i) == 0:\n            print(f\"{num} is not a prime number\")\n            break\n    else:\n        print(f\"{num} is a prime number\")\nelse:\n    print(f\"{num} is not a prime number\")"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "palindrome",
+            "patterns": [
+                "palindrome",
+                "check if a string is palindrome",
+                "program to check palindrome"
+            ],
+            "responses": [
+                "string = input(\"Enter a string: \")\nif string == string[::-1]:\n    print(f\"'{string}' is a palindrome\")\nelse:\n    print(f\"'{string}' is not a palindrome\")"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "reverse_string",
+            "patterns": [
+                "reverse a string",
+                "string reversal",
+                "program to reverse a string"
+            ],
+            "responses": [
+                "string = input(\"Enter a string: \")\nreversed_string = string[::-1]\nprint(f\"Reversed string: {reversed_string}\")"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "sum_of_digits",
+            "patterns": [
+                "sum of digits",
+                "calculate sum of digits",
+                "program to find sum of digits"
+            ],
+            "responses": [
+                "num = int(input(\"Enter a number: \"))\nsum_of_digits = sum(int(digit) for digit in str(num))\nprint(f\"Sum of digits of {num} is {sum_of_digits}\")"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "armstrong",
+            "patterns": [
+                "armstrong number",
+                "check armstrong number",
+                "program for armstrong number"
+            ],
+            "responses": [
+                "num = int(input(\"Enter a number: \"))\norder = len(str(num))\nsum = sum(int(digit)**order for digit in str(num))\nif num == sum:\n    print(f\"{num} is an Armstrong number\")\nelse:\n    print(f\"{num} is not an Armstrong number\")"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "even_odd",
+            "patterns": [
+                "even or odd",
+                "check even or odd",
+                "program to check if a number is even or odd"
+            ],
+            "responses": [
+                "num = int(input(\"Enter a number: \"))\nif num % 2 == 0:\n    print(f\"{num} is an even number\")\nelse:\n    print(f\"{num} is an odd number\")"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "gcd",
+            "patterns": [
+                "gcd of two numbers",
+                "find gcd",
+                "program to find gcd of two numbers"
+            ],
+            "responses": [
+                "import math\nnum1 = int(input(\"Enter first number: \"))\nnum2 = int(input(\"Enter second number: \"))\nprint(f\"GCD of {num1} and {num2} is {math.gcd(num1, num2)}\")"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "lcm",
+            "patterns": [
+                "lcm of two numbers",
+                "find lcm",
+                "program to find lcm of two numbers"
+            ],
+            "responses": [
+                "def lcm(a, b):\n    return abs(a * b) // math.gcd(a, b)\nimport math\nnum1 = int(input(\"Enter first number: \"))\nnum2 = int(input(\"Enter second number: \"))\nprint(f\"LCM of {num1} and {num2} is {lcm(num1, num2)}\")"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "leap_year",
+            "patterns": [
+                "leap year",
+                "check leap year",
+                "program to check if a year is a leap year"
+            ],
+            "responses": [
+                "year = int(input(\"Enter a year: \"))\nif (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):\n    print(f\"{year} is a leap year\")\nelse:\n    print(f\"{year} is not a leap year\")"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "binary_to_decimal",
+            "patterns": [
+                "binary to decimal",
+                "convert binary to decimal",
+                "program to convert binary to decimal"
+            ],
+            "responses": [
+                "binary = input(\"Enter a binary number: \")\ndecimal = int(binary, 2)\nprint(f\"Decimal equivalent of binary {binary} is {decimal}\")"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "decimal_to_binary",
+            "patterns": [
+                "decimal to binary",
+                "convert decimal to binary",
+                "program to convert decimal to binary"
+            ],
+            "responses": [
+                "decimal = int(input(\"Enter a decimal number: \"))\nbinary = bin(decimal).replace('0b', '')\nprint(f\"Binary equivalent of decimal {decimal} is {binary}\")"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "factorial_recursive",
+            "patterns": [
+                "factorial recursive",
+                "factorial using recursion",
+                "program to find factorial using recursion"
+            ],
+            "responses": [
+                "def factorial(n):\n    return 1 if n == 0 else n * factorial(n - 1)\nnum = int(input(\"Enter a number: \"))\nprint(f\"Factorial of {num} is {factorial(num)}\")"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "sum_n_numbers",
+            "patterns": [
+                "sum of n numbers",
+                "find sum of n numbers",
+                "program to calculate sum of n numbers"
+            ],
+            "responses": [
+                "n = int(input(\"Enter a number: \"))\nsum_n = n * (n + 1) // 2\nprint(f\"Sum of first {n} numbers is {sum_n}\")"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "reverse_number",
+            "patterns": [
+                "reverse a number",
+                "number reversal",
+                "program to reverse a number"
+            ],
+            "responses": [
+                "num = int(input(\"Enter a number: \"))\nreversed_num = int(str(num)[::-1])\nprint(f\"Reversed number is {reversed_num}\")"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "ascii_value",
+            "patterns": [
+                "ascii value",
+                "find ascii value",
+                "program to find ascii value of a character"
+            ],
+            "responses": [
+                "char = input(\"Enter a character: \")\nprint(f\"ASCII value of '{char}' is {ord(char)}\")"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "merge_sort",
+            "patterns": [
+                "merge sort",
+                "program to sort an array using merge sort",
+                "merge sort algorithm"
+            ],
+            "responses": [
+                "def merge_sort(arr):\n    if len(arr) > 1:\n        mid = len(arr) // 2\n        left = arr[:mid]\n        right = arr[mid:]\n        merge_sort(left)\n        merge_sort(right)\n        i = j = k = 0\n        while i < len(left) and j < len(right):\n            if left[i] < right[j]:\n                arr[k] = left[i]\n                i += 1\n            else:\n                arr[k] = right[j]\n                j += 1\n            k += 1\n        while i < len(left):\n            arr[k] = left[i]\n            i += 1\n            k += 1\n        while j < len(right):\n            arr[k] = right[j]\n            j += 1\n            k += 1\narr = [38, 27, 43, 3, 9, 82, 10]\nmerge_sort(arr)\nprint(arr)"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "quick_sort",
+            "patterns": [
+                "quick sort",
+                "program to sort an array using quick sort",
+                "quick sort algorithm"
+            ],
+            "responses": [
+                "def quick_sort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quick_sort(left) + middle + quick_sort(right)\narr = [38, 27, 43, 3, 9, 82, 10]\nsorted_arr = quick_sort(arr)\nprint(sorted_arr)"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "longest_palindromic_substring",
+            "patterns": [
+                "longest palindromic substring",
+                "program to find longest palindromic substring",
+                "longest palindrome substring"
+            ],
+            "responses": [
+                "def longest_palindrome(s):\n    def expand_around_center(s, left, right):\n        while left >= 0 and right < len(s) and s[left] == s[right]:\n            left -= 1\n            right += 1\n        return s[left + 1:right]\n    if not s:\n        return \"\"\n    result = \"\"\n    for i in range(len(s)):\n        odd_palindrome = expand_around_center(s, i, i)\n        even_palindrome = expand_around_center(s, i, i + 1)\n        longer = odd_palindrome if len(odd_palindrome) > len(even_palindrome) else even_palindrome\n        if len(longer) > len(result):\n            result = longer\n    return result\ninput_str = 'babad'\nprint(longest_palindrome(input_str))"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "coin_change_problem",
+            "patterns": [
+                "coin change problem",
+                "program to solve coin change problem",
+                "find minimum coins to make change"
+            ],
+            "responses": [
+                "def coin_change(coins, amount):\n    dp = [float('inf')] * (amount + 1)\n    dp[0] = 0\n    for coin in coins:\n        for x in range(coin, amount + 1):\n            dp[x] = min(dp[x], dp[x - coin] + 1)\n    return dp[amount] if dp[amount] != float('inf') else -1\ncoins = [1, 2, 5]\namount = 11\nprint(coin_change(coins, amount))"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "knapsack_problem",
+            "patterns": [
+                "knapsack problem",
+                "program to solve 0/1 knapsack problem",
+                "knapsack dynamic programming"
+            ],
+            "responses": [
+                "def knapsack(weights, values, W):\n    n = len(weights)\n    dp = [[0 for _ in range(W + 1)] for _ in range(n + 1)]\n    for i in range(1, n + 1):\n        for w in range(1, W + 1):\n            if weights[i - 1] <= w:\n                dp[i][w] = max(values[i - 1] + dp[i - 1][w - weights[i - 1]], dp[i - 1][w])\n            else:\n                dp[i][w] = dp[i - 1][w]\n    return dp[n][W]\nweights = [1, 2, 3]\nvalues = [10, 20, 30]\nW = 5\nprint(knapsack(weights, values, W))"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "n_queens_problem",
+            "patterns": [
+                "n-queens problem",
+                "program to solve n-queens problem",
+                "n-queens algorithm"
+            ],
+            "responses": [
+                "def is_safe(board, row, col, n):\n    for i in range(col):\n        if board[row][i] == 1:\n            return False\n    for i, j in zip(range(row, -1, -1), range(col, -1, -1)):\n        if board[i][j] == 1:\n            return False\n    for i, j in zip(range(row, n, 1), range(col, -1, -1)):\n        if board[i][j] == 1:\n            return False\n    return True\n\ndef solve_n_queens(board, col, n):\n    if col >= n:\n        return True\n    for i in range(n):\n        if is_safe(board, i, col, n):\n            board[i][col] = 1\n            if solve_n_queens(board, col + 1, n):\n                return True\n            board[i][col] = 0\n    return False\n\ndef print_solution(board):\n    for row in board:\n        print(' '.join(['Q' if x else '.' for x in row]))\n\ndef n_queens(n):\n    board = [[0] * n for _ in range(n)]\n    if not solve_n_queens(board, 0, n):\n        print('No solution exists')\n    else:\n        print_solution(board)\nn_queens(4)"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "matrix_rotation",
+            "patterns": [
+                "rotate matrix",
+                "program to rotate a matrix by 90 degrees",
+                "matrix rotation algorithm"
+            ],
+            "responses": [
+                "def rotate_matrix(matrix):\n    n = len(matrix)\n    for i in range(n // 2):\n        for j in range(i, n - i - 1):\n            temp = matrix[i][j]\n            matrix[i][j] = matrix[n - j - 1][i]\n            matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1]\n            matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1]\n            matrix[j][n - i - 1] = temp\nmatrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\nrotate_matrix(matrix)\nfor row in matrix:\n    print(row)"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "longest_common_subsequence",
+            "patterns": [
+                "longest common subsequence",
+                "program to find LCS",
+                "longest common subsequence dynamic programming"
+            ],
+            "responses": [
+                "def lcs(X, Y):\n    m, n = len(X), len(Y)\n    dp = [[0] * (n + 1) for _ in range(m + 1)]\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if X[i - 1] == Y[j - 1]:\n                dp[i][j] = dp[i - 1][j - 1] + 1\n            else:\n                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])\n    return dp[m][n]\nX = 'AGGTAB'\nY = 'GXTXAYB'\nprint(lcs(X, Y))"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "dijkstra_algorithm",
+            "patterns": [
+                "dijkstra algorithm",
+                "program to find shortest path using dijkstra",
+                "dijkstra shortest path algorithm"
+            ],
+            "responses": [
+                "import heapq\n\ndef dijkstra(graph, start):\n    pq = [(0, start)]\n    dist = {node: float('inf') for node in graph}\n    dist[start] = 0\n    while pq:\n        current_dist, node = heapq.heappop(pq)\n        if current_dist > dist[node]:\n            continue\n        for neighbor, weight in graph[node]:\n            distance = current_dist + weight\n            if distance < dist[neighbor]:\n                dist[neighbor] = distance\n                heapq.heappush(pq, (distance, neighbor))\n    return dist\n\ngraph = {'A': [('B', 1), ('C', 4)], 'B': [('A', 1), ('C', 2), ('D', 5)], 'C': [('A', 4), ('B', 2), ('D', 1)], 'D': [('B', 5), ('C', 1)]}\nstart = 'A'\nprint(dijkstra(graph, start))"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "t3jaauqmd",
+            "patterns": [
+                "add 2 numbers",
+                "t3jaauqmd"
+            ],
+            "responses": [
+                "a=int(input(\"enter a\")\nb=int(input(\"enter b\")\nc=a+b\nprint(c)"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "k5srg5u2p",
+            "patterns": [
+                "greatest of 2 numbers",
+                "k5srg5u2p"
+            ],
+            "responses": [
+                "a = int(input(\"Enter first number: \"))\nb = int(input(\"Enter second number: \"))\nprint(\"Greatest number is:\", max(a, b))"
+            ],
+            "context": [
+                ""
+            ]
+        }
+    ]
+}

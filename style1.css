@@ -1,0 +1,283 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold; /* Make all text bold */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-size: cover;
+    background-color: white; /* Dark background for "AI Blackbox" effect */
+    animation: changeBackground 10s ease-in-out infinite;
+    transition: background-color 0.5s ease;
+}
+
+.wrapper {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    border-radius: 80px;
+    box-shadow: 0 0 60px rgba(0, 0, 0, .7);
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    animation: fadeInWrapper 1.5s ease-in-out;
+    border: 2px solid #00ff99
+}
+
+.wrapper .text-right {
+    position: absolute;
+    top: 50%;
+    right: 10%;  /* Align to the right side of the screen */
+    transform: translateY(-50%); /* Vertically center the text */
+    color: #000000;  /* Dark black text */
+    text-shadow: none; /* Remove text shadow for dark text */
+    font-size: 50px;
+    user-select: none;
+    font-family: 'Parisienne', cursive;
+    animation: textGlow 1.5s ease-in-out infinite alternate;
+}
+
+.wrapper img {
+    position: absolute;
+    right: -40px;
+    bottom: -160px;
+    width: 60%;
+    transform: rotate(260deg);
+    animation: rotateImage 5s infinite linear;
+}
+
+.form-wrapper {
+    z-index: 2;
+    
+}
+
+.wrapper .form-wrapper.login {
+    transition: .7s ease-in-out;
+    transition-delay: .7s;
+    animation: slideInLogin 1.5s ease-in-out;
+    
+}
+
+.wrapper.active .form-wrapper.login {
+    transition-delay: 0s;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-wrapper.register {
+    position: absolute;
+    margin-top: 15px;
+    transform: translateX(-400px);
+    transition: .7s ease-in-out;
+    animation: slideInRegister 1.5s ease-in-out;
+}
+
+.wrapper.active .form-wrapper.register {
+    transition-delay: .7s;
+    transform: translateX(0);
+}
+
+h2 {
+    font-size: 2.5em;
+    text-align: center;
+    color: #000000;  /* Dark black text */
+    margin-bottom: 30px;
+    font-weight: bold; /* Bold the heading */
+}
+
+.input-box {
+    position: relative;
+    width: 320px;
+    margin: 30px 0;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.input-box input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #00ff99; /* Neon green border for input fields */
+    outline: none;
+    border-radius: 40px;
+    font-size: 1em;
+    color: #000000;  /* Dark black text inside the input fields */
+    padding: 0 20px 0 40px;
+    transition: all 0.3s ease;
+    font-weight: bold; /* Bold the input text */
+}
+
+.input-box input::placeholder {
+    color: #000000; /* Dark black placeholder text */
+    font-weight: bold; /* Bold placeholder text */
+}
+
+.input-box .icon {
+    position: absolute;
+    left: 15px;
+    color: #00ff99; /* Neon green for icons */
+    font-size: 1.2em;
+    line-height: 55px;
+}
+
+.forgot-pass {
+    margin: -15px 0 15px 15px;
+}
+
+.forgot-pass a {
+    color: #000000; /* Dark black text for links */
+    font-size: .9em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: bold; /* Bold forgot password link */
+}
+
+.forgot-pass a:hover {
+    text-decoration: underline;
+    color: #00cc66; /* Slightly darker green on hover */
+}
+
+button {
+    width: 100%;
+    height: 45px;
+    background: linear-gradient(45deg, #00ff99, #00cc66); /* Neon gradient button */
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: bold; /* Bold the button text */
+    transition: background 0.3s ease;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #00cc66, #00ff99); /* Reverse gradient on hover */
+}
+
+.sign-link {
+    font-size: .9em;
+    text-align: center;
+    margin: 25px 0;
+}
+
+.sign-link p {
+    color: #000000; /* Dark black text */
+    font-weight: bold; /* Bold the text */
+}
+
+.sign-link p a {
+    color: #000000; /* Dark black links for "Don't have an account?" */
+    text-decoration: none;
+    font-weight: bold; /* Bold the link */
+    transition: color 0.3s ease;
+}
+
+.sign-link p a:hover {
+    text-decoration: underline;
+    color: #00cc66; /* Slightly darker green on hover */
+}
+
+/* Animations */
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 20px rgba(0, 255, 255, .8), 0 0 30px rgba(0, 255, 255, 1);
+    }
+    100% {
+        text-shadow: 0 0 40px rgba(0, 255, 255, .8), 0 0 50px rgba(0, 255, 255, 1);
+    }
+}
+
+@keyframes rotateImage {
+    0% {
+        transform: rotate(260deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes fadeInWrapper {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInLogin {
+    0% {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRegister {
+    0% {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/* Updated input box border with lightning effect */
+.input-box input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #00ff99; /* Initial neon green border */
+    outline: none;
+    border-radius: 40px;
+    font-size: 1em;
+    color: #000000; /* Dark black text inside the input fields */
+    padding: 0 20px 0 40px;
+    transition: all 0.3s ease;
+    font-weight: bold; /* Bold the input text */
+    animation: lightningBorder 1s infinite alternate; /* Lightning border animation */
+}
+
+@keyframes lightningBorder {
+    0% {
+        border-color: #1e8a46; /* Dark blue */
+    }
+    20% {
+        border-color: #25eb53; /* Lighter blue */
+    }
+    40% {
+        border-color: #1e8a46; /* Dark blue */
+    }
+    60% {
+        border-color:#25eb53 ; /* Bright blue */
+    }
+    80% {
+        border-color: #1e8a46; /* Dark blue */
+    }
+    100% {
+        border-color: #25eb53; /* Lighter blue */
+    }
+}

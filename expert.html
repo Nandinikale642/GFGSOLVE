@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Answer</title>
+    <style>
+        
+        p {
+            background: #282828;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        textarea {
+            width: 100%;
+            height: 120px;
+            background: #282828;
+            color: #e0e0e0;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            background-color: #ffcc00;
+            color: #121212;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #e6b800;
+        }
+        body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevents scrollbars */
+}
+
+.container {
+    width: 100vw;  /* Full width */
+    height: 100vh; /* Full height */
+    background: #1e1e1e;
+    padding: 40px;
+    border-radius: 0; /* Removes rounded edges */
+    box-shadow: none; /* Optional: removes shadow */
+    box-sizing: border-box; /* Includes padding in size calculation */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2, h3 {
+    color: #ffcc00;
+    text-align: center;
+}
+
+p, textarea, button {
+    width: 80%; /* Adjusted for better readability */
+    max-width: 600px; /* Prevents excessive stretching */
+}
+
+textarea {
+    height: 150px;
+    font-size: 18px;
+}
+
+button {
+    font-size: 18px;
+    padding: 15px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Question ID: <span id="question-id"></span></h2>
+        <h3>Question:</h3>
+        <p id="question-text"></p>
+        <h3>Provide Answer:</h3>
+        <textarea id="expert-answer"></textarea>
+        <button onclick="submitExpertAnswer()">Submit Answer</button>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            var urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+    
+        document.getElementById("question-id").textContent = getQueryParam("id") || "Unknown";
+        document.getElementById("question-text").textContent = getQueryParam("question") || "No question provided.";
+    
+        function submitExpertAnswer() {
+            var answer = document.getElementById("expert-answer").value.trim();
+            var question = document.getElementById("question-text").textContent;
+            var id = document.getElementById("question-id").textContent;
+    
+            if (!answer) {
+                alert("Please provide an answer.");
+                return;
+            }
+    
+            var newIntent = {
+                "tag": id,
+                "patterns": [question,id],
+                "responses": [answer],
+                "context": [""]
+            };
+    
+            fetch("http://127.0.0.1:5500/add_intent", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(newIntent)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(err => { throw new Error(err.error || "Failed to save answer."); });
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert("Answer submitted and stored successfully!");
+                window.close();
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Failed to save the answer: " + error.message);
+            });
+        }
+    </script>
+</body>
+</html>

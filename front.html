@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Powered Coding Assistant</title>
+  <style>
+    /* New Section Backgrounds and Effects */
+    .section:nth-child(odd) {
+      background: linear-gradient(to bottom, #34495e, #2c3e50);
+    }
+    .section:nth-child(even) {
+      background: linear-gradient(to bottom, #2c3e50, #1c1c1c);
+    }
+  
+    /* List Styling */
+    ul {
+      list-style-type: disc;
+      padding-left: 40px;
+      color: #fff;
+      line-height: 1.8;
+    }
+  
+    ul li {
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+  
+    ul li:hover {
+      transform: translateX(10px);
+      color: #f39c12;
+    }
+  
+    /* Enhanced Images */
+    img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+  
+    img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+    }
+  
+    /* Button Styles */
+    .start-button {
+      padding: 15px 30px;
+      font-size: 1.3em;
+      color: #fff;
+      background: linear-gradient(to right, #2c3e50, #34495e);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+  
+    .start-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    }
+  
+    .start-button:active {
+      transform: translateY(2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+  
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+  
+    /* General Body Styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #1c1c1c, #2c3e50);
+      color: #fff;
+      height: 100%;
+      overflow-x: hidden;
+    }
+  
+    /* Full-Page Sections */
+    .section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+  
+    /* Floating Header */
+    .floating-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 15px;
+      color: #fff;
+      font-size: 2em;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+    }
+  
+    /* Section Content Styles */
+    .content {
+      font-size: 1.5em;
+      line-height: 1.6;
+      color: #ddd;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+  
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+  
+    @media (max-width: 768px) {
+      .floating-header {
+        font-size: 1.8em;
+      }
+  
+      .start-button {
+        padding: 12px 25px;
+        font-size: 1.1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Header -->
+  <div class="floating-header">
+    AI-Powered Coding Assistant
+  </div>
+
+  <!-- First Section: Introduction -->
+  <div class="section" id="section1">
+    <div class="content">
+      <h1>Revolutionize Your Coding Experience</h1>
+      <p>This project focuses on developing an advanced chatbot dedicated to providing assistance with coding questions. Users can ask coding-related questions, and the chatbot offers instant solutions based on its trained models.</p>
+    </div>
+  </div>
+
+  <!-- Second Section: Features -->
+  <div class="section" id="section2">
+    <div class="content">
+      <h1>Key Features</h1>
+      <ul>
+        <li>Instant solutions to coding questions based on trained AI models</li>
+        <li>"Not Satisfied" button for user feedback</li>
+        <li>Unique ID generation for unresolved queries</li>
+        <li>Integration with trusted coding platforms for enhanced answers</li>
+        <li>Iterative improvement of responses through external expert feedback</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Third Section: Why Use This Tool -->
+  <div class="section" id="section3">
+    <div class="content">
+      <h1>Why Use This Tool?</h1>
+      <ul>
+        <li>Enhanced user satisfaction through an iterative feedback mechanism</li>
+        <li>High-quality, accurate solutions contributed by external platforms</li>
+        <li>Tailored for both novice programmers and experienced developers</li>
+        <li>Dynamic improvement process that refines the chatbot's expertise over time</li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin: 20px 0; display: flex; justify-content: center; gap: 20px;">
+    <img src="Screenshot (11).png" alt="Coding Image 1" style="max-width: 50%; border-radius: 10px;">
+    <img src="Screenshot (7).png" alt="Coding Image 2" style="max-width: 50%; border-radius: 10px;">
+  </div>
+  <div class="section" id="section4">
+    <div class="content">
+    <h1>About This Page</h1>
+    <p>
+      This webpage introduces an AI-powered chatbot designed to assist with coding-related queries. 
+      You can ask any coding-related question, and the chatbot will provide an answer based on its trained models. 
+      If you're not satisfied with the response, you can click on a "Not Satisfied" button (represented as an 'X' icon). 
+      This will generate a unique ID for the query and transfer it to a platform where coding experts can review it. 
+      Once reviewed, you can use the unique ID to retrieve the expert-approved answer.
+    </p>
+      <h1>Get Started Today</h1>
+      <p>Ready to explore the future of coding assistance? Click below to begin your journey with our AI-powered chatbot.</p>
+      <button class="start-button" onclick="redirectToLogin()">Get Started</button>
+    </div>
+  </div>
+ 
+  <script>
+    function redirectToLogin() {
+      window.location.href = "enigma.html";
+    }
+  </script>
+
+</body>
+</html>
